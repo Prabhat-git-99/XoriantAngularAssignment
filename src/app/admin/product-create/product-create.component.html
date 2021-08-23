@@ -1,0 +1,42 @@
+<div class="form-style-2" >
+    <div class="form-style-2-heading">Add Product Here</div>
+    <form #createForm="ngForm" (ngSubmit)="submit(createForm.value, createForm)" >
+        <label for="field1"><span>Title <span class="required">*</span></span>
+            <!-- <input type="text" class="input-field" name="field1" value="" /> -->
+            <!-- <input type="text" ngModel name="title" [(ngModel)]="title"   /> -->
+            <input type="text" ngModel name="title" #title="ngModel" minlength="4" maxlength="20" required  />
+            <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
+                <div *ngIf="title.errors?.required">Title is required.</div>
+                <div *ngIf="title.errors?.minlength">Title is minimum {{ title.errors?.minlength.requiredLength }} character.</div>
+                <div *ngIf="title.errors?.maxlength">Title is maximum 10 character.</div>
+            </div>
+        </label>
+        <label for="field2"><span>Description <span class="required">*</span></span>
+            <!-- <input type="text" class="input-field" name="field2" value="" /> -->
+            <!-- <input type="text" ngModel name="description" [(ngModel)]="description" /> -->
+            <input type="text" ngModel name="description" #description="ngModel" required />
+            <div class="alert alert-danger" *ngIf="description.touched && !description.valid">
+                <div *ngIf="description.errors?.required">Description is required.</div>
+            </div>
+        </label>
+        <label><span>Price<span class="required">*</span></span>
+            <input type="text" ngModel name="price" #price="ngModel" required />
+            <div class="alert alert-danger" *ngIf="price.touched && !price.valid">
+                <div *ngIf="price.errors?.required">Price is required.</div>
+            </div>
+        </label>
+        <label><span>Quantity<span class="required">*</span></span>
+            <input type="text" ngModel name="quantity" #quantity="ngModel" />
+            <div class="alert alert-danger" *ngIf="quantity.touched && !quantity.valid">
+                <div *ngIf="quantity.errors?.required">Quantity is required.</div>
+            </div>
+        </label>
+        <label><span>Image<span class="required">*</span></span>
+            <input type="text" ngModel name="image" #image="ngModel" />
+            <div class="alert alert-danger" *ngIf="image.touched && !image.valid">
+                <div *ngIf="image.errors?.required">Image is required.</div>
+            </div>
+        </label>
+        <label><span> </span><input [class.disabled]="!createForm.valid" type="submit" value="Add" /></label>
+    </form>
+</div>

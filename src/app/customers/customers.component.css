@@ -1,0 +1,18 @@
+.app-container {
+
+    min-height: 100vh;
+    position: relative;
+
+}
+
+.content-container {
+
+    margin-top: 4rem;
+}
+
+.footer-area {
+
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}

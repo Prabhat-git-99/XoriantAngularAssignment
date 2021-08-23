@@ -1,0 +1,39 @@
+
+<div class="form-style-2" >
+    <div class="form-style-2-heading">Edit Product Here</div>
+    <form action="" method="post" #editForm="ngForm" [formGroup]="form" (ngSubmit)="submit()" >
+        <label for="field1"><span>Title <span class="required">*</span></span>
+            <!-- <input type="text" class="input-field" name="field1" value="" /> -->
+            <input type="text" name="title" class="input-field" [ngClass]="{ 'is-invalid': submitted && form.controls.title.errors }" formControlName="title" />
+            <div *ngIf="submitted && form.controls.title.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.title.errors.required">Title is required</div>
+            </div>
+        </label>
+        <label for="field2"><span>Description <span class="required">*</span></span>
+            <!-- <input type="text" class="input-field" name="field2" value="" /> -->
+            <input type="text" name="description" class="input-field" formControlName="description" [ngClass]="{ 'is-invalid': submitted && form.controls.description.errors }" />
+            <div *ngIf="submitted && form.controls.description.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.description.errors.required">Description is required</div>
+            </div>
+        </label>
+        <label><span>Price<span class="required">*</span></span>
+            <input type="text" name="price" formControlName="price" class="input-field" [ngClass]="{ 'is-invalid': submitted && form.controls.price.errors }" />
+            <div *ngIf="submitted && form.controls.price.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.price.errors.required">Price is required</div>
+            </div>
+        </label>
+        <label><span>Quantity<span class="required">*</span></span>
+            <input type="text" name="quantity" formControlName="quantity" [ngClass]="{ 'is-invalid': submitted && form.controls.quantity.errors }"  class="input-field" />        
+            <div *ngIf="submitted && form.controls.quantity.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.quantity.errors.required">Quantity is required</div>
+            </div>
+        </label>
+        <label><span>Image<span class="required">*</span></span>
+            <input type="text" name="image" formControlName="image" [ngClass]="{ 'is-invalid': submitted && form.controls.image.errors }"  class="input-field" />
+            <div *ngIf="submitted && form.controls.image.errors" class="invalid-feedback">
+                <div *ngIf="form.controls.image.errors.required">Image is required</div>
+            </div>
+        </label>
+        <label><span> </span><input type="submit" value="Save" /></label>
+    </form>
+</div>

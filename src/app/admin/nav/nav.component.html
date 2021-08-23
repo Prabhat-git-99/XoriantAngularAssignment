@@ -1,0 +1,16 @@
+<div class="nav-container">
+    <ul class="nav-links">
+        <li class="nav-link">
+            <a routerLink="products">Home</a>
+        </li >
+        <li class="nav-link">
+            <a routerLink="products/product-create">Add Product</a>
+        </li>
+        <li class="nav-link">
+            <button *ngIf="checkSignedin()" (click)="signoutHandler()">signout</button>
+            
+            <button *ngIf="!checkSignedin()" (click)="signinHandler()">signin</button>
+    
+        </li>
+    </ul>
+</div>

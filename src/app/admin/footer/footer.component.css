@@ -1,0 +1,17 @@
+
+.footer-container {
+
+    z-index: 100;
+    background: rgb(43, 167, 189);
+    position: sticky;
+    bottom: 0;
+    padding: 20px;
+    color: wheat;
+    font-weight: bolder;
+    text-transform: capitalize;
+    width: 100vw;
+    text-align: center;
+    letter-spacing: 2px;
+    font-style: italic;
+
+}

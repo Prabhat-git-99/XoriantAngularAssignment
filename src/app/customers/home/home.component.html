@@ -1,0 +1,57 @@
+<div class="home-container">
+    <div class="side-container">
+
+        <label>All Products: <input type="checkbox" name="filter" value="all-product" (click)="setFilter($event)" ></label>
+        <label>Mobile: <input type="checkbox" name="filter" value="mobile" (click)="setFilter($event)" ></label>
+        <label>Laptop: <input type="checkbox" name="filter" value="laptop" (click)="setFilter($event)" ></label>
+        <label>Watch: <input type="checkbox" name="filter" value="watch" (click)="setFilter($event)" ></label>
+
+    </div>
+
+    <div class="product-container">
+
+        <div class="search-container">
+
+            <input type="text" placeholder="search here..." (keyup)="searchBar($event)" name="search">
+
+        </div>
+
+        <div class="pagination">
+
+            <button (click)="prevButton()" >Prev</button>
+            <span class="pageno">{{currentPage + 1}}</span>
+            <button (click)="nextButton()" >Next</button>
+
+        </div>
+        <div class="all-product">
+            <ng-container *ngFor="let product of currentData">
+            
+                <div class="single-product">
+                    <div class="img-container">
+                        <img src="{{product.image}}" alt="{{product.title}}">
+                    </div>
+                    <div class="info-container">
+                        <div class="title">
+                            <h3 class="product-tite">{{product.title}}</h3>
+                            <h3 class="price">${{product.price}}</h3>
+                            <h3 class="quant price" >quantity left: {{product.quantity}}</h3>
+                            <h4 class="cat price">{{product.category}}</h4>
+                        </div>
+                        <!-- <div class="description">
+                            <p>{{product.description}}</p>
+                        </div> -->
+                        <div class="action-container">
+                            <button routerLink="product/{{product.id}}" >View</button>
+                            <button (click)="addToCart(product)">Add</button>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+            </ng-container>
+    
+        </div>
+        
+    </div>
+
+</div>

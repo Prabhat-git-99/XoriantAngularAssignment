@@ -1,0 +1,55 @@
+<!-- <p>cart works!</p>
+<div class="cart-container">
+
+    <ng-container *ngFor="let item of product">
+        <h1>{{item.title}} quant {{item.itemQuantity}}</h1>
+        <button (click)="removeItem(item)" >remove</button>
+    </ng-container>
+    <h2>total: {{grandTotal}}</h2>
+
+</div> -->
+
+<div class="cart-container">
+
+    <table *ngIf="product.length">
+        <thead>
+            <tr>
+            
+                <th>Product Name</th>
+                <th>discription</th>
+                <th>quantity</th>
+                <th>price</th>
+                <!-- <th>Total</th> -->
+                <th>image</th>
+                <th>Add/Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of product">
+      
+                <td>{{product.title}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.itemQuantity}}</td>
+                <td>{{product.price}}*{{product.itemQuantity}} = {{product.price*product.itemQuantity}}</td>
+                <td><img [src]="product.image" width="90" /></td>
+                <td>
+                    <!-- <a [routerLink]="['/admin/products/',product.id,'edit']" class="btn">Edit</a> -->
+                    <button class="btn btn-del" (click)="removeItem(product)">-</button>
+                    <span class="item-quant">{{product.itemQuantity}}</span>
+                    <button class="btn btn-add" (click)="addItem(product)" >+</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!product.length" class="empty-cart-table">
+        <h1>Your Cart is Empty!!</h1>
+    </div>  
+    <div *ngIf="product.length" class="cart-bottom">
+        <div class="cart-total">
+            Total: ${{grandTotal}}
+        </div>
+        <div class="checkout-btn">
+            <button routerLink="checkout" >Checkout</button>
+        </div>
+    </div>
+</div>
